@@ -19,13 +19,18 @@ class Controller {
         console.log(userAnswers)
     }
 
-    endGame() {
+    endGame(numOfQuestions) {
         let currentScore = document.getElementById("currentScore")
 
-        currentScore.innerHTML = `${this.userName} fick ${this.score} rätt`
+        currentScore.innerHTML = `${this.userName} fick ${this.score} rätt utav ${numOfQuestions} möjliga`
 
         document.getElementById("endContainer").classList.remove("hidden")
         document.getElementById("quizContainer").classList.add("hidden")
+        document.getElementById("currentScore").classList.remove("hidden")
+
+        let currentQuestionDiv = document.getElementById("currentQuestionDiv")
+        currentQuestionDiv.innerHTML = ``
+        this.score = 0;
 
     }
 

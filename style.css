@@ -12,6 +12,7 @@ body {
     align-items: center;
     background-color: rgb(238, 129, 129);
     font-size: 2.7rem;
+
 }
 
 #answersContainer {
@@ -33,6 +34,28 @@ body {
     justify-content: space-evenly;
 }
 
+#currentQuestionDiv {
+    margin: auto;
+    display: grid;
+    width: 70vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgb(233, 75, 75);
+    font-size: 1.5rem;
+}
+
+#currentScore {
+    margin: auto;
+    display: flex;
+    height: 30vh;
+    width: 70vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 2.7rem;
+
+}
 
 .hidden {
     display: none;

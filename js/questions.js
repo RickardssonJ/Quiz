@@ -2,6 +2,7 @@ class Questions {
     constructor(numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions
         this.currentQuestion = 0;
+
     }
 
     async fetch() {
@@ -13,6 +14,9 @@ class Questions {
     nextQuestion(apiData) {
         this.showQuestion(apiData[this.currentQuestion].question)
         this.showOptions(apiData[this.currentQuestion].answers)
+
+        let currentQuestionDiv = document.getElementById("currentQuestionDiv")
+        currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion +1} utav ${this.numberOfQuestions}`
     }
 
     showQuestion(question) {
@@ -58,7 +62,7 @@ class Questions {
 
     returnTrue(apiCorrectAnswers) {
 
-        let trimmedCorrectAnswers = []
+        let trimmedCorrectAnswers = [] //Inehåller endast dom correcta svaren
 
         //En loop som plockar ut alla svar som är true och sparar värdet på dom i arryen trimmedCorrectAnswers
         for (let answer in apiCorrectAnswers) {
