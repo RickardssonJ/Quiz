@@ -9,10 +9,10 @@ class Questions {
         return data.json()
     }
 
+    //apiData inehåller nu hela objektet ifrån fetchen
     nextQuestion(apiData) {
         this.showQuestion(apiData[this.currentQuestion].question)
         this.showOptions(apiData[this.currentQuestion].answers)
-        //this.checkAnswer(apiData[this.currentQuestion].correct_answers)
     }
 
     showQuestion(question) {
@@ -23,19 +23,22 @@ class Questions {
     showOptions(apiOptions) {
 
         let answersContainer = document.getElementById("answersContainer")
+
+        //Sålänge som det finns en fråga i answersContainer, så ska den sista (senaste) childen (frågan) tas bort
         while (answersContainer.firstChild) {
 
             answersContainer.removeChild(answersContainer.lastChild)
         }
 
-        //Den här loopen kollar igenom alla svaren som finns i objektet answers ifrån APIn och tar bort alla svaren som inehåller null eller false
+        //Den här loopen kollar igenom alla svaren som finns i objektet apiOptions ifrån APIn och tar bort alla svaren som inehåller null eller false
         for (let option in apiOptions) {
-            // apiOptions inehåller hela objektet. apiOptions[option] pekar på det första vädret i apiOptions. är det värdet null eller false, så kommer den att tasbort ifrån objektet
+            // apiOptions inehåller alla svarsalternativ. apiOptions[option] pekar på det första vädret i apiOptions. är det värdet null eller false, så kommer den att tasbort ifrån objektet
             if (apiOptions[option] == null || option == "false") {
                 delete apiOptions[option]
             }
         }
-        //Måste vara en in loop. 
+
+        //Den här loopen skapar ett span och en checkbox för varje fråga som är kvar i apiOptions efter den tidigare loopen 
         for (let element in apiOptions) {
 
             let newSpan = document.createElement("span")
@@ -43,7 +46,7 @@ class Questions {
             newCheckBox.type = "checkbox"
             newCheckBox.value = element
 
-            newSpan.textContent = apiOptions[element] //apiOptions innehåller ett object och för att skriva ut dom olika egenskaprna i objektet på rättplats så används element ungefär som en siffra.
+            newSpan.textContent = apiOptions[element]
 
             answersContainer.appendChild(newSpan)
             newSpan.appendChild(newCheckBox)

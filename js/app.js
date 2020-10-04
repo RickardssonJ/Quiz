@@ -2,16 +2,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     let submitBtn = document.getElementById("submitBtn")
     let playAgainBtn = document.getElementById("playAgainBtn")
+
     let userName = "Jimmy" //prompt("vad heter du?")
     let inputQuestionNo = 3 //parseInt(prompt("Hur många frågor vill du ha?"));
+
     let questions = new Questions(inputQuestionNo)
-
-    let control = new Controller(userName)
-
-    let data = await questions.fetch()
-
+    let data = await questions.fetch() //Här får vi tillbaka hela fetch objektet som en JASON
     questions.nextQuestion(data)
 
+    let control = new Controller(userName)
 
 
     submitBtn.addEventListener("click", function () {
@@ -23,13 +22,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             let userAnswers = []
 
-
             for (let box of checkBoxes) {
                 if (box.checked) {
                     userAnswers.push(box.value)
                 }
             }
-            console.log(userAnswers)
+
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
             questions.currentQuestion++
             questions.nextQuestion(data)
