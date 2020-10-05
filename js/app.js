@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let questions = new Questions(inputQuestionNo)
 
 
-    let data = await questions.fetch() //Här fhela fetch objektet som en JASON
+    let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
     questions.nextQuestion(data)
 
     let control = new Controller(userName)
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     submitBtn.addEventListener("click", function () {
 
-        if (inputQuestionNo == questions.currentQuestion) {
+        if (inputQuestionNo  == questions.currentQuestion) {
 
             control.endGame(inputQuestionNo)
         } else {
