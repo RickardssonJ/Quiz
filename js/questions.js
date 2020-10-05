@@ -17,6 +17,10 @@ class Questions {
 
         let currentQuestionDiv = document.getElementById("currentQuestionDiv")
         currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion +1} utav ${this.numberOfQuestions}`
+
+        if (this.currentQuestion > 2) {
+            document.getElementById("previousBtn").classList.remove("hidden")
+        }
     }
 
     showQuestion(question) {
@@ -75,6 +79,11 @@ class Questions {
         return trimmedCorrectAnswers
     }
 
+    previousQuestion(apiData) {
 
+
+        this.showQuestion(apiData[this.currentQuestion - 1].question)
+        this.showOptions(apiData[this.currentQuestion - 1].answers)
+    }
 
 }

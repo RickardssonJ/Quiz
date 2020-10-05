@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     let submitBtn = document.getElementById("submitBtn")
     let playAgainBtn = document.getElementById("playAgainBtn")
-
+    let previousBtn = document.getElementById("previousBtn")
+    previousBtn.classList.add("hidden")
     let userName = "Jimmy" //prompt("vad heter du?")
     let inputQuestionNo = 3 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
 
     let questions = new Questions(inputQuestionNo)
-    let data = await questions.fetch() //Här får vi tillbaka hela fetch objektet som en JASON
+    let data = await questions.fetch() //Här fhela fetch objektet som en JASON
     questions.nextQuestion(data)
 
     let control = new Controller(userName)
@@ -53,6 +54,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         questions.nextQuestion(data)
 
 
+    })
+
+    previousBtn.addEventListener("click", function () {
+        questions.previousQuestion(data)
     })
 
 });
