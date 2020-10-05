@@ -10,13 +10,10 @@ class Controller {
 
         if (apiCorrectAnswers.toString() === userAnswers.toString()) {
             this.score++
-            console.log("rätt")
 
         } else {
-            console.log("fel")
         }
-        console.log(this.score)
-        console.log(userAnswers)
+        
     }
 
     endGame(numOfQuestions) {

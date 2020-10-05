@@ -2,7 +2,7 @@ class Questions {
     constructor(numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions
         this.currentQuestion = 0;
-
+        console.log("I constructorn " + this.currentQuestion)
     }
 
     async fetch() {
@@ -18,9 +18,9 @@ class Questions {
         let currentQuestionDiv = document.getElementById("currentQuestionDiv")
         currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion +1} utav ${this.numberOfQuestions}`
 
-        if (this.currentQuestion > 2) {
-            document.getElementById("previousBtn").classList.remove("hidden")
-        }
+        this.currentQuestion++
+
+
     }
 
     showQuestion(question) {
@@ -81,9 +81,12 @@ class Questions {
 
     previousQuestion(apiData) {
 
+        this.currentQuestion--
+        this.showQuestion(apiData[this.currentQuestion -1].question)
+        this.showOptions(apiData[this.currentQuestion -1].answers)
 
-        this.showQuestion(apiData[this.currentQuestion - 1].question)
-        this.showOptions(apiData[this.currentQuestion - 1].answers)
+        let currentQuestionDiv = document.getElementById("currentQuestionDiv")
+        currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion} utav ${this.numberOfQuestions}`
     }
 
 }

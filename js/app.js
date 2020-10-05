@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     let previousBtn = document.getElementById("previousBtn")
     previousBtn.classList.add("hidden")
     let userName = "Jimmy" //prompt("vad heter du?")
-    let inputQuestionNo = 3 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
+    let inputQuestionNo = 4 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
+
 
     let questions = new Questions(inputQuestionNo)
+
+
     let data = await questions.fetch() //Här fhela fetch objektet som en JASON
     questions.nextQuestion(data)
 
@@ -16,10 +19,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     submitBtn.addEventListener("click", function () {
+        
+        if (inputQuestionNo == questions.currentQuestion) {
+            console.log("I submitt eventet currentQuestion  " + questions.currentQuestion)
+            console.log("I submitt eventet inputQuestionNo  " + inputQuestionNo)
 
-        if (inputQuestionNo - 1 == questions.currentQuestion) {
             control.endGame(inputQuestionNo)
         } else {
+            console.log("I submitt eventet currentQuestion" + questions.currentQuestion)
+            console.log("I submitt eventet inputQuestionNo" + inputQuestionNo)
             let checkBoxes = document.getElementsByTagName("input")
 
             let userAnswers = [] //Inehåller dom svar som användaren har kryssat i
@@ -31,26 +39,27 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
 
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
-            questions.currentQuestion++
-            console.log("This is the current question " + questions.currentQuestion)
+
 
             questions.nextQuestion(data)
-        }
 
+        }
+        document.getElementById("previousBtn").classList.remove("hidden")
     })
     playAgainBtn.addEventListener("click", async function () {
 
         questions.currentQuestion = 0
         control.userName = "Dino" //prompt("vad heter du?")
         inputQuestionNo = 5 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
-
         questions.numberOfQuestions = inputQuestionNo
+        data = await questions.fetch()
+
         document.getElementById("endContainer").classList.add("hidden")
         document.getElementById("quizContainer").classList.remove("hidden")
         document.getElementById("currentScore").classList.add("hidden")
 
         currentScore.innerHTML = ""
-        data = await questions.fetch()
+
         questions.nextQuestion(data)
 
 
