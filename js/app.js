@@ -19,15 +19,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     submitBtn.addEventListener("click", function () {
-        
+
         if (inputQuestionNo == questions.currentQuestion) {
-            console.log("I submitt eventet currentQuestion  " + questions.currentQuestion)
-            console.log("I submitt eventet inputQuestionNo  " + inputQuestionNo)
 
             control.endGame(inputQuestionNo)
         } else {
-            console.log("I submitt eventet currentQuestion" + questions.currentQuestion)
-            console.log("I submitt eventet inputQuestionNo" + inputQuestionNo)
+
             let checkBoxes = document.getElementsByTagName("input")
 
             let userAnswers = [] //Inehåller dom svar som användaren har kryssat i
@@ -39,8 +36,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
 
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
-
-
             questions.nextQuestion(data)
 
         }

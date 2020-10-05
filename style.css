@@ -42,7 +42,7 @@ body {
 }
 
 #currentQuestionDiv {
-    margin-left: 190px;
+    margin-left: 205px;
     display: flex;
     width: 65vw;
     justify-content: space-evenly;
@@ -64,6 +64,16 @@ body {
     align-items: center;
     font-size: 2.7rem;
 
+}
+
+#submitBtn {
+    margin-left: 500px;
+    margin-top: 10px;
+}
+
+#previousBtn {
+    margin-left: 200px;
+    margin-top: 10px;
 }
 
 .hidden {
