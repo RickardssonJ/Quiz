@@ -59,5 +59,5 @@ document.addEventListener("DOMContentLoaded", async function () {
         questions.previousQuestion(data)
     })
 
-
+    //hej hej
 });
