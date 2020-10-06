@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let control = new Controller(userName)
 
 
+    // Buttons
     submitBtn.addEventListener("click", function () {
         if (inputQuestionNo == questions.currentQuestion) {
             control.endGame(inputQuestionNo)
@@ -57,5 +58,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     previousBtn.addEventListener("click", function () {
         questions.previousQuestion(data)
     })
+
 
 });
