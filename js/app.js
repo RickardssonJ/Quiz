@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     let previousBtn = document.getElementById("previousBtn")
     let playAgainBtn = document.getElementById("playAgainBtn")
 
-    let inputQuestionNo = 4 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
-    let questions = new Questions(inputQuestionNo)
-
-    let userName = "Jimmy" //prompt("vad heter du?")
+    let userName = "jimmy" // prompt("vad heter du?")
     let control = new Controller(userName)
+
+    let inputQuestionNo = 4 // parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
+    let questions = new Questions(inputQuestionNo)
 
     let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
 
@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     playAgainBtn.addEventListener("click", async function () {
         questions.currentQuestion = 0
-        control.userName = "Dino" //prompt("vad heter du?")
-        inputQuestionNo = 5 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
+        control.userName = "Dino" // prompt("vad heter du?")
+        inputQuestionNo = 3 // parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
         questions.numberOfQuestions = inputQuestionNo
         data = await questions.fetch()
 
