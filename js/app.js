@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
 
 
-
-
     // Buttons
     nextQuestionBtn.addEventListener("click", function () {
 
