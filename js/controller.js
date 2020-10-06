@@ -4,21 +4,15 @@ class Controller {
         this.userName = userName
     }
 
-
-
     updateScore(apiCorrectAnswers, userAnswers) {
-
         if (apiCorrectAnswers.toString() === userAnswers.toString()) {
             this.score++
-
-        } else {
         }
-        
+
     }
 
     endGame(numOfQuestions) {
         let currentScore = document.getElementById("currentScore")
-
         currentScore.innerHTML = `${this.userName} fick ${this.score} rätt utav ${numOfQuestions} möjliga`
 
         document.getElementById("endContainer").classList.remove("hidden")
@@ -30,5 +24,4 @@ class Controller {
         this.score = 0;
 
     }
-
 }

@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let userName = "Jimmy" //prompt("vad heter du?")
     let inputQuestionNo = 4 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
 
-
     let questions = new Questions(inputQuestionNo)
-
 
     let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
     questions.nextQuestion(data)
@@ -19,14 +17,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     submitBtn.addEventListener("click", function () {
-
-        if (inputQuestionNo  == questions.currentQuestion) {
-
+        if (inputQuestionNo == questions.currentQuestion) {
             control.endGame(inputQuestionNo)
         } else {
-
             let checkBoxes = document.getElementsByTagName("input")
-
             let userAnswers = [] //Inehåller dom svar som användaren har kryssat i
 
             for (let box of checkBoxes) {
@@ -37,12 +31,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
             questions.nextQuestion(data)
-
         }
         document.getElementById("previousBtn").classList.remove("hidden")
     })
-    playAgainBtn.addEventListener("click", async function () {
 
+
+    playAgainBtn.addEventListener("click", async function () {
         questions.currentQuestion = 0
         control.userName = "Dino" //prompt("vad heter du?")
         inputQuestionNo = 5 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));

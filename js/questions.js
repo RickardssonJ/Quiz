@@ -26,15 +26,23 @@ class Questions {
         questionContainer.innerHTML = question
     }
 
-    showAnswerOptions(apiOptions) {
+    // Går igenom objectet och tar bort dom svars alternativen som har värderna null eller false och skickar tillbaka ett object utan null och false
+    trimmed(apiAnswerOption) {
+        for (let key in apiAnswerOption) {
+            if (apiAnswerOption[key] == null || apiAnswerOption[key] == "false") {
+                delete apiAnswerOption[key]
+            }
+        }
+        return apiAnswerOption
+    }
 
+    showAnswerOptions(apiOptions) {
         let answersContainer = document.getElementById("answersContainer")
 
         //Sålänge som det finns en fråga i answersContainer, så ska den sista (senaste) childen (frågan) tas bort
         while (answersContainer.firstChild) {
             answersContainer.removeChild(answersContainer.lastChild)
         }
-        console.log(apiOptions)
         //Den här loopen skapar ett span och en checkbox för varje fråga som är kvar i apiOptions efter den tidigare loopen 
         for (let element in apiOptions) {
             let newSpan = document.createElement("span")
@@ -49,20 +57,12 @@ class Questions {
         }
     }
 
-    trimmed(inputObject) {
-        for (let key in inputObject) {
-            if (inputObject[key] == null || inputObject[key] == "false") {
-                delete inputObject[key]
-            }
-        }
-        return inputObject
-    }
 
     returnTrue(apiCorrectAnswers) {
-        let trimmedCorrectAnswers = Object.keys(this.trimmed(apiCorrectAnswers)).map(function (item) {
-            return item.replace("_correct", "");
+        //Object.keys kommer att peka på egenskaperna i apiCorrectAnswers
+        let trimmedCorrectAnswers = Object.keys(this.trimmed(apiCorrectAnswers)).map((property) => {
+            return property.replace("_correct", "");
         });
-
         return trimmedCorrectAnswers
     }
 
