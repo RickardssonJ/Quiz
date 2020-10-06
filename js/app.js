@@ -1,23 +1,27 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    document.getElementById("currentScore").classList.add("hidden")
 
-    let submitBtn = document.getElementById("submitBtn")
-    let playAgainBtn = document.getElementById("playAgainBtn")
+    let nextQuestionBtn = document.getElementById("nextQuestionBtn")
     let previousBtn = document.getElementById("previousBtn")
-    previousBtn.classList.add("hidden")
-    let userName = "Jimmy" //prompt("vad heter du?")
-    let inputQuestionNo = 4 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
+    let playAgainBtn = document.getElementById("playAgainBtn")
 
+    let inputQuestionNo = 4 //parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
     let questions = new Questions(inputQuestionNo)
 
-    let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
-    questions.nextQuestion(data)
-
+    let userName = "Jimmy" //prompt("vad heter du?")
     let control = new Controller(userName)
+
+    let data = await questions.fetch() //Här finns hela fetch objektet som en JASON
+
+
 
 
     // Buttons
-    submitBtn.addEventListener("click", function () {
+    nextQuestionBtn.addEventListener("click", function () {
+
+        if (nextQuestionBtn.innerHTML = "Start quiz") {
+            nextQuestionBtn.innerHTML = "Next question"
+        }
+
         if (inputQuestionNo == questions.currentQuestion) {
             control.endGame(inputQuestionNo)
         } else {
@@ -34,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             questions.nextQuestion(data)
         }
         document.getElementById("previousBtn").classList.remove("hidden")
+
     })
 
 
@@ -59,5 +64,5 @@ document.addEventListener("DOMContentLoaded", async function () {
         questions.previousQuestion(data)
     })
 
-    //hej hej
+
 });

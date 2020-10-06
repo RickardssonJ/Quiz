@@ -19,6 +19,7 @@ class Controller {
         document.getElementById("quizContainer").classList.add("hidden")
         document.getElementById("currentScore").classList.remove("hidden")
 
+
         let currentQuestionDiv = document.getElementById("currentQuestionDiv")
         currentQuestionDiv.innerHTML = ``
         this.score = 0;
