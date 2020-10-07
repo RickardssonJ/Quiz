@@ -59,7 +59,6 @@ class Questions {
         }
     }
 
-
     returnTrue(apiCorrectAnswers) {
         //Object.keys kommer att peka på egenskaperna i apiCorrectAnswers
         let trimmedCorrectAnswers = Object.keys(this.trimmed(apiCorrectAnswers)).map((property) => {
@@ -78,8 +77,6 @@ class Questions {
 
         if (this.currentQuestion < 2) {
             document.getElementById("previousBtn").classList.add("hidden")
-            console.log("I loopen" + this.currentQuestion)
         }
-
     }
 }

@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Buttons
     nextQuestionBtn.addEventListener("click", () => {
-
         if (nextQuestionBtn.innerHTML = "Start quiz") {
             nextQuestionBtn.innerHTML = "Next question"
         }
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     userAnswers.push(box.value)
                 }
             }
-
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
             questions.nextQuestion(data)
         }
@@ -50,10 +48,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("currentScore").classList.add("hidden")
 
         currentScore.innerHTML = ""
-
         questions.nextQuestion(data)
     })
-
     previousBtn.addEventListener("click", () => {
         questions.previousQuestion(data)
     })
