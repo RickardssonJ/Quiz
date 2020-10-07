@@ -2,7 +2,6 @@ class Questions {
     constructor(numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions
         this.currentQuestion = 0;
-
     }
 
     async fetch() {
@@ -18,6 +17,9 @@ class Questions {
         let currentQuestionDiv = document.getElementById("currentQuestionDiv")
         currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion +1} utav ${this.numberOfQuestions}`
 
+        if (this.currentQuestion > 0) {
+            document.getElementById("previousBtn").classList.remove("hidden")
+        }
         this.currentQuestion++
     }
 
@@ -73,5 +75,11 @@ class Questions {
 
         let currentQuestionDiv = document.getElementById("currentQuestionDiv")
         currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion} utav ${this.numberOfQuestions}`
+
+        if (this.currentQuestion < 2) {
+            document.getElementById("previousBtn").classList.add("hidden")
+            console.log("I loopen" + this.currentQuestion)
+        }
+
     }
 }

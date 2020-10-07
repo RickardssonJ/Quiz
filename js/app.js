@@ -35,8 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             control.updateScore(questions.returnTrue(data[questions.currentQuestion].correct_answers), userAnswers)
             questions.nextQuestion(data)
         }
-        document.getElementById("previousBtn").classList.remove("hidden")
-
     })
 
 
@@ -54,13 +52,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         currentScore.innerHTML = ""
 
         questions.nextQuestion(data)
-
-
     })
 
     previousBtn.addEventListener("click", () => {
         questions.previousQuestion(data)
     })
-
-
 });
