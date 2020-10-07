@@ -24,13 +24,9 @@ input {
     text-align: center;
     border: 0.1rem solid black;
     box-shadow: 10px 5px 35px rgb(0, 0, 0);
-
-
 }
 
-
 #answersContainer {
-
     margin-top: 10px;
     margin-left: 170px;
     display: grid;
@@ -44,9 +40,7 @@ input {
     border-radius: 25px 25px 25px 25px;
     border: 0.1rem solid black;
     box-shadow: 10px 5px 35px rgb(0, 0, 0);
-
 }
-
 
 #currentQuestionDiv {
     margin-left: 205px;
@@ -60,7 +54,6 @@ input {
     border-radius: 25px 25px 25px 25px;
     border: 0.1rem solid;
     box-shadow: 10px 5px 15px rgb(0, 0, 0);
-
 }
 
 #currentScore {
@@ -72,7 +65,6 @@ input {
     flex-wrap: wrap;
     align-items: center;
     font-size: 2.7rem;
-
 }
 
 #endContainer {
@@ -104,13 +96,10 @@ input {
     border-radius: 5px;
     border: none;
     transition: all 0.4s ease 0s;
-
 }
-
 
 #nextQuestionBtn:hover {
     background: #434343;
-    /* letter-spacing: 1px; */
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
