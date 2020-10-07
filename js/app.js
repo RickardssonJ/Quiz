@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", async () => {
 
     let nextQuestionBtn = document.getElementById("nextQuestionBtn")
     let previousBtn = document.getElementById("previousBtn")
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     // Buttons
-    nextQuestionBtn.addEventListener("click", function () {
+    nextQuestionBtn.addEventListener("click", () => {
 
         if (nextQuestionBtn.innerHTML = "Start quiz") {
             nextQuestionBtn.innerHTML = "Next question"
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
 
 
-    playAgainBtn.addEventListener("click", async function () {
+    playAgainBtn.addEventListener("click", async () => {
         questions.currentQuestion = 0
         control.userName = "Dino" // prompt("vad heter du?")
         inputQuestionNo = 3 // parseInt(prompt("Hur många frågor vill du ha? minst 5 max 10"));
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     })
 
-    previousBtn.addEventListener("click", function () {
+    previousBtn.addEventListener("click", () => {
         questions.previousQuestion(data)
     })
 
