@@ -2,6 +2,7 @@ class Questions {
     constructor(numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions;
         this.currentQuestion = 0;
+        this.num = 1
     }
 
     async fetch() {
@@ -11,15 +12,17 @@ class Questions {
 
     //apiData inehåller nu hela objektet ifrån fetchen
     nextQuestion(apiData) {
+
         this.showQuestion(apiData[this.currentQuestion].question);
         this.showAnswerOptions(this.trimmed(apiData[this.currentQuestion].answers));
 
         let currentQuestionDiv = document.getElementById("currentQuestionDiv");
-        currentQuestionDiv.innerHTML = `Fråga ${this.currentQuestion +1} utav ${this.numberOfQuestions}`;
+        currentQuestionDiv.innerHTML = `Fråga ${this.num} utav ${this.numberOfQuestions}`;
 
         if (this.currentQuestion > 0) {
             document.getElementById("previousBtn").classList.remove("hidden");
         }
+        this.num++
         this.currentQuestion++;
     }
 
@@ -45,7 +48,7 @@ class Questions {
         while (answersContainer.firstChild) {
             answersContainer.removeChild(answersContainer.lastChild);
         }
-        //Den här loopen skapar ett span och en checkbox för varje fråga som är kvar i apiOptions efter den tidigare loopen 
+        //Den här loopen skapar ett span och en checkbox för varje fråga som är kvar i apiOptions efter trim metoden 
         for (let element in apiOptions) {
             let newSpan = document.createElement("span");
             let newCheckBox = document.createElement("input");
@@ -60,10 +63,11 @@ class Questions {
     }
 
     returnTrue(apiCorrectAnswers) {
-        //Object.keys kommer att peka på egenskaperna i apiCorrectAnswers
+        //Object.keys kommer att peka på egenskaperna i apiCorrectAnswers. Som kommer färdig "trimmad" ifrån trimmed()
         let trimmedCorrectAnswers = Object.keys(this.trimmed(apiCorrectAnswers)).map((property) => {
             return property.replace("_correct", "");
         });
+        console.log("Return true " + trimmedCorrectAnswers)
         return trimmedCorrectAnswers;
     }
 
