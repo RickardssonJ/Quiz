@@ -6,7 +6,21 @@ input {
     margin-left: 10px;
     width: 20px;
     height: 20px;
-  }
+}
+
+#inputName{
+    width: 200px;
+}
+
+#result{
+    font-size: 1.9rem;
+    margin-right: 0.5rem;
+}
+
+#login{
+
+    align-items: center;
+}
 
 #questionContainer {
     margin-bottom: 10px;
@@ -83,7 +97,7 @@ input {
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-}
+} */
 
 #previousBtn {
     margin-left: 220px;
@@ -98,7 +112,7 @@ input {
     transition: all 0.4s ease 0s;
 }
 
-#nextQuestionBtn:hover {
+ #nextQuestionBtn:hover {
     background: #434343;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -112,12 +126,12 @@ input {
     -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.4s ease 0s;
-}
+} 
 
-#playAgainBtn {
+ /* #playAgainBtn {
     align-items: center;
     margin-top: 15px;
-    color: #fff !important;
+    color: #fff ;
     text-transform: uppercase;
     text-decoration: none;
     background: #ed3330;
@@ -126,7 +140,7 @@ input {
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-}
+} */
 
 #playAgainBtn:hover {
     background: #434343;
@@ -137,5 +151,5 @@ input {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
