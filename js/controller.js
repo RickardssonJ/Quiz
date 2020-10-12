@@ -6,7 +6,7 @@ class Controller {
     }
 
     updateScore(userAnswers, apiData) {
-      
+
         let sum = []
         //Här loopar jag igenom alla arryer som finns i unserAnswers, och för varje userAnswer så jämför jag om APIns rätta svar är samma som användarens.
         //i APINs rätta svar tar jag först bort alla svaren som har vädet null eller false med returnTrue(), sen gör jag om svaret till en sträng och trimmar bort _correct för varje svar.
@@ -27,13 +27,12 @@ class Controller {
 
     endGame() {
 
-
         document.getElementById("nextQuestionBtn").classList.add("hidden")
         document.getElementById("endContainer").classList.remove("hidden");
         document.getElementById("quizContainer").classList.add("hidden");
         document.getElementById("currentScore").classList.remove("hidden");
-        document.getElementById("playAgainBtn").classList.remove("hidden");//               this.game.player.score
-        document.getElementById("result").innerHTML = `${this.game.player.userName} got ${this.totalScore} right answers out of ${this.game.questions.numberOfQuestions} possible`
+        document.getElementById("playAgainBtn").classList.remove("hidden");//         this.game.player.score
+        document.getElementById("result").innerHTML = `${this.game.player.userName} got ${this.totalScore} rightanswers out of ${this.game.questions.numberOfQuestions} possible`
 
     }
 

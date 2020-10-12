@@ -2,7 +2,6 @@
 
 class Game {
     constructor() {
-        //Allt här i startar när jag skapar objektet i app.js
         //Här skapar jag dom andra objekten för att kunna komma åt alla metoder i dom olika klasserna ifrån Game
         this.player = new Player()
         this.questions = new Questions()
@@ -28,7 +27,7 @@ class Game {
 
         startBtn.addEventListener("click", () => {
             document.getElementById("login").classList.add("hidden")
-            this.start() // Start hämtar fetchen
+            this.start()
             this.currentQuestionDisplay()
             this.player.userName = document.getElementById("inputName").value //Skickar användarens namn till player klassen
         })
@@ -39,7 +38,7 @@ class Game {
             this.currentQuestionDisplay() //Visar vilken fråga man är på
 
             if ((this.questions.currentQuestion) === (this.questions.numberOfQuestions)) {
-                this.controller.updateScore(this.controller.userAnswers, this.questions.data) //Updatescore körs bara på slutet
+                this.controller.updateScore(this.controller.userAnswers, this.questions.data) 
                 this.controller.endGame()
             }
             else {
