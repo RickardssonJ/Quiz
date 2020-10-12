@@ -1,6 +1,9 @@
+//Ifrån Game kan jag komma åt alla dom andra klasserna
+
 class Game {
     constructor() {
-        //Allt här i startar automatiskt
+        //Allt här i startar när jag skapar objektet i app.js
+        //Här skapar jag dom andra objekten för att kunna komma åt alla metoder i dom olika klasserna ifrån Game
         this.player = new Player()
         this.questions = new Questions()
         this.controller = new Controller(this)
@@ -8,9 +11,9 @@ class Game {
     }
 
     async start() {
-
+        //Start() sätter igång spelet och ser till att alla värden är nollade
         this.questions.currentQuestion = 0
-        await this.questions.fetchQuestions() //Om vi inte väntar på fetchen i questions så kommer rad 15  och nedåt att laddas in utan fetch
+        await this.questions.fetchQuestions() //Om jag inte väntar på att fetchen ska gå klart i questions först så kommer rad 15  och nedåt att laddas in utan fetch.
         this.player.score = 0
         this.questions.showQuestion()
         this.questions.showAnswerOptions()
@@ -27,13 +30,13 @@ class Game {
             document.getElementById("login").classList.add("hidden")
             this.start() // Start hämtar fetchen
             this.currentQuestionDisplay()
-            this.player.userName = document.getElementById("inputName").value
+            this.player.userName = document.getElementById("inputName").value //Skickar användarens namn till player klassen
         })
 
         nextBtn.addEventListener("click", () => {
             this.getCheckBoxes()
             this.questions.currentQuestion++
-            this.currentQuestionDisplay()
+            this.currentQuestionDisplay() //Visar vilken fråga man är på
 
             if ((this.questions.currentQuestion) === (this.questions.numberOfQuestions)) {
                 this.controller.updateScore(this.controller.userAnswers, this.questions.data) //Updatescore körs bara på slutet
@@ -62,7 +65,7 @@ class Game {
 
         for (let box of checkBoxes) {
             if (box.checked) {
-                this.controller.userAnswers[this.questions.currentQuestion].push(box.value)
+                this.controller.userAnswers[this.questions.currentQuestion].push(box.value) //Pushar in värdet ifrån varje checkbox som är checkad till arrayn som skapas tidigare
             }
         }
 
